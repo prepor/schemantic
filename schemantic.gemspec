@@ -8,6 +8,7 @@ spec = Gem::Specification.new do |s|
   s.description = 'Ruby toolkit for JSON Schema'
   s.has_rdoc = false
   s.authors = ["Andrew Rudenko"]
+  s.add_dependency "multi_json", "~> 1.5.0"
 
   # = MANIFEST =
   s.files = %w[

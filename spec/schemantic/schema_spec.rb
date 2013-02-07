@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'schemantic/schema'
 
 describe Schemantic do
   describe Schemantic::Schema do
@@ -853,7 +854,20 @@ describe Schemantic do
             i.must_equal 1
           end
         end
+      end
+    end
 
+    describe "validate schema itself" do
+      describe "invalid schema" do
+        let("schema_data") do
+          {
+            'type' => { 'name' => 'complex_type' }
+          }
+        end
+
+        it "should raise exception" do
+          proc { schema }.must_raise Schemantic::Schema::ParseError
+        end
       end
     end
   end
